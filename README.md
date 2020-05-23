@@ -1,5 +1,11 @@
 # Syllimaker
 
+This is an app for creating and maintaining the different syllabuss's and is to be used as an administrative tool for the teachers
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.6.
 
 ## Development server

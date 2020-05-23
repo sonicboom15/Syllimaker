@@ -1,8 +1,12 @@
-<div class="container">
-  <h1 class="text-center py-4">Tryout</h1>        
+<body>
+<div class="particles-wrapper particles">
+  <canvas repulse-particles number={{number}}></canvas>
+</div>
+<div class="container-fluid">      
   <div *ngIf="loggedIn===false">
     <div>
-      <button type="button" (click)="signInWithGoogle()" class="btn btn-primary">Sign In With Google</button>
+      <h1 class="text-center py-4 txt">Sign in</h1>  
+      <button type="button" (click)="signInWithGoogle()" class="btn btn-custom">Sign In With Google</button>
     </div>
   </div>        
   <div *ngIf="loggedIn===true">
@@ -13,3 +17,4 @@
     <button type="button" (click)="signOut()" class="btn btn-primary">Sign Out</button>         
   </div>
 </div>
+</body>

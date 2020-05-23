@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   signinForm: FormGroup;
   user: SocialUser;
   loggedIn: boolean;
+  number: number = 100;
 
   constructor(private fb: FormBuilder, private authService: AuthService) { }
 
