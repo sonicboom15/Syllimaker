@@ -1,0 +1,12 @@
+.card-custom{
+    background-color: #1D1D1D;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    color: white;
+    height: 100%;
+    opacity: 0.9;
+}
+.btn-custom{
+    background-color: #BB86FC;
+    font-weight: bold;
+}

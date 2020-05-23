@@ -1,20 +1,47 @@
 <body>
 <div class="particles-wrapper particles">
   <canvas repulse-particles number={{number}}></canvas>
-</div>
-<div class="container-fluid">      
+</div>   
   <div *ngIf="loggedIn===false">
-    <div>
-      <h1 class="text-center py-4 txt">Sign in</h1>  
-      <button type="button" (click)="signInWithGoogle()" class="btn btn-custom">Sign In With Google</button>
+    <div class="container-fluid">
+      <h1 class="text-center py-4 txt">Sillymaker</h1>  
+      <div class="row">
+        <div class="col-md-9">
+          <div class="card card-custom">
+            <div class="card-body">
+              <h5 class="card-title">To be worked upon</h5>
+              <p class="card-text">Need to fill this part up</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card card-custom">
+            <div class="card-body">
+              <h5>So, why wait? Sign in/up now</h5>
+              <button type="button" (click)="signInWithGoogle()" class="btn btn-custom btn-fill">Sign In/Up With Google</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>        
   <div *ngIf="loggedIn===true">
-    <div class="form-group">
-      <label for="email2">Userid </label>
-      <input type="text" class="form-control" id="email2" [value]="user.email" readonly>
+    <nav class="navbar navbar-fixed-top navbar-dark bg-dark nav-custom">
+      <a class="navbar-brand">Sillymaker</a>
+      <button type="button" (click)="signOut()" class="btn btn-custom">Sign Out</button>  
+    </nav>
+    <div class="container-fluid app">
+      <div class="row"  style="height: 90vh;">
+        <div class="col-md-3" style="height: inherit;">
+          <app-daycomp></app-daycomp>
+        </div>
+        <div class="col-md-3" style="height: inherit;">
+          <app-topiccomp></app-topiccomp>
+        </div>
+        <div class="col-md-6" style="height: inherit;">
+          <app-editorcomp></app-editorcomp>
+        </div>
     </div>
-    <button type="button" (click)="signOut()" class="btn btn-primary">Sign Out</button>         
+    </div>
   </div>
-</div>
 </body>

@@ -7,7 +7,10 @@ import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ParticlesDirective } from './particles-directive'
+import { ParticlesDirective } from './particles-directive';
+import { DaycompComponent } from './daycomp/daycomp.component';
+import { TopiccompComponent } from './topiccomp/topiccomp.component';
+import { EditorcompComponent } from './editorcomp/editorcomp.component'
 
 const config = new AuthServiceConfig([
   {
@@ -23,7 +26,10 @@ export function provideConfig() {
 @NgModule({
   declarations: [
     AppComponent,
-    ParticlesDirective
+    ParticlesDirective,
+    DaycompComponent,
+    TopiccompComponent,
+    EditorcompComponent
   ],
   imports: [
     BrowserModule,
