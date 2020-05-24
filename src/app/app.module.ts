@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule} from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ParticlesDirective } from './particles-directive';
 import { DaycompComponent } from './daycomp/daycomp.component';
 import { TopiccompComponent } from './topiccomp/topiccomp.component';
-import { EditorcompComponent } from './editorcomp/editorcomp.component'
+import { EditorcompComponent } from './editorcomp/editorcomp.component';
+import { AppboiComponent } from './appboi/appboi.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 const config = new AuthServiceConfig([
   {
@@ -29,14 +33,19 @@ export function provideConfig() {
     ParticlesDirective,
     DaycompComponent,
     TopiccompComponent,
-    EditorcompComponent
+    EditorcompComponent,
+    AppboiComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     SocialLoginModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [
     {

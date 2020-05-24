@@ -1,0 +1,118 @@
+<div class="row"  style="height: 90vh;">
+  <div class="col-md-2" style="height: inherit;">
+    <div class="card card-custom">
+      <div class="card-body">
+        <button type="button" (click)="addnewDay(data)" class="btn btn-custom btn-fill">Add Day</button>
+        <hr style="border-top:1px solid rgba(255, 255, 255, 0.1);">
+        <div *ngFor="let day of data.days">
+          <button type="button" (click)="setActiveDay(data,day.id)" class="btn btn-custom btn-fill" style="margin-top: 8px;" value="{{day.id}}">Day {{day.id+1}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3" style="height: inherit;">
+    <div class="card card-custom">
+      <div class="card-body">
+        <div *ngIf="data.activeday!=-1; else noActive">
+          <!-- addnewTopic(data) -->
+          <button type="button" (click)="open(topicModal)" class="btn btn-custom btn-fill">Add Topic</button>
+          <hr style="border-top:1px solid rgba(255, 255, 255, 0.1);">
+          <div *ngIf="data.days[data.activeday].getTopiclength()!=0">
+            <div class="form-group">
+              <input type="text" [(ngModel)]="queryValue" class="form-control" placeholder="Search Topic">
+            </div>
+            <hr style="border-top:1px solid rgba(255, 255, 255, 0.1);">
+            <div *ngFor="let topic of getTopics(data,queryValue)">
+              <div class="card card-custom2" (click)="setActiveTopic(data,topic.id)" >
+                <div class="card-body">
+                  <h5>{{topic.title}}</h5>
+                  <div class="btn btn-custom" style="float:right;">{{topic.type}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #noActive>
+          <h5>Create/Select a day to work on</h5>
+        </ng-template>
+        <ng-template #topicModal let-modal>
+          <div class="card-custom">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-11">
+                  <h5>Add Topic</h5>
+                </div>
+                <div class="col">
+                  <button type="button" class="close" style="float: right;" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <fa-icon [icon]="faTimes" class="inverse"></fa-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <form (submit)="addnewTopic(data,title.value,type.value,content.value,mentor.value);modal.dismiss('Submitted')">
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="title">Title:</label>
+                  <input #title type="text" ngbAutofocus class="form-control custom-input" placeholder="Enter Title" required>
+                </div>
+                <div class="form-group">
+                  <label for="type">Type</label>
+                  <select #type class="form-control" id="type" required>
+                    <option value="Type A">Type A</option>
+                    <option value="Type B">Type B</option>
+                    <option value="Type C">Type C</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="content">Content:</label>
+                  <textarea #content class="form-control" rows="5" id="content" required></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="mentor">Instructions for Mentor:</label>
+                  <textarea #mentor class="form-control" rows="5" id="mentor" required></textarea>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="button" type="submit" class="btn btn-custom">Add Topic</button>&nbsp;
+                <button type="button" class="btn btn-custom" aria-label="Close" (click)="modal.dismiss('Cross click')">Close</button>
+              </div>
+            </form>
+          </div>
+        </ng-template>
+        <ng-template #confirm let-modal>
+          <div class="card-custom">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-11">
+                  <h5>Confirm Save?</h5>
+                </div>
+                <div class="col">
+                  <button type="button" class="close" style="float: right;" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <fa-icon [icon]="faTimes" class="inverse"></fa-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button type="button" (click)="saveEdits(data);modal.dismiss('Cross click');" class="btn btn-custom">Save</button>&nbsp;
+            <button type="button" class="btn btn-custom" aria-label="Close" (click)="modal.dismiss('Cross click')">Close</button>
+          </div>
+        </ng-template>
+      </div>
+    </div>    
+  </div>
+  <div class="col-md-7" style="height: inherit;">
+    <div class="card card-custom">
+      <div class="card-body">
+        <div *ngIf="data.activetopic!=-1">
+          <label for="content">Content</label>
+          <angular-editor [(ngModel)]="content"></angular-editor>
+          <hr style="border-top:1px solid rgba(255, 255, 255, 0.1);">
+          <label for="mentor">Instruction for Mentor</label>
+          <angular-editor [(ngModel)]="mentor"></angular-editor>
+          <hr style="border-top:1px solid rgba(255, 255, 255, 0.1);">
+          <div class="btn btn-custom" (click)="open(confirm)" style="float:right;">Save</div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
