@@ -93,8 +93,10 @@
                 </div>
               </div>
             </div>
-            <button type="button" (click)="saveEdits(data);modal.dismiss('Cross click');" class="btn btn-custom">Save</button>&nbsp;
-            <button type="button" class="btn btn-custom" aria-label="Close" (click)="modal.dismiss('Cross click')">Close</button>
+            <div class="card-footer" style="float: right;">
+              <button type="button" (click)="saveEdits(data);modal.dismiss('Cross click');" class="btn btn-custom">Save</button>&nbsp;
+            <button type="button" ngbAutofocus class="btn btn-custom" aria-label="Close" (click)="modal.dismiss('Cross click')">Close</button>
+            </div>
           </div>
         </ng-template>
       </div>
